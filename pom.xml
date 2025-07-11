@@ -89,7 +89,18 @@
         <docker.image.prefix>springcommunity</docker.image.prefix>
 
     </properties>
-
+<distributionManagement>
+    <repository>
+  <id>DevEnvOrganization</id>
+  <url>https://pkgs.dev.azure.com/DevEnvOrganization/_packaging/DevEnvOrganization/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+</distributionManagement>
     <dependencyManagement>
         <dependencies>
             <dependency>
