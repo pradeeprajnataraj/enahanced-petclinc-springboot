@@ -1,0 +1,29 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  name: Default
+  demands:
+    - agent.name -equals vm-ubuntu
+
+steps:
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo "Running on agent: $(Agent.Name)"
+      echo "Current directory: $(Build.SourcesDirectory)"
+      echo "Hello from Linux shell!"
+      uname -a
+      df -h
+      whoami
+      mvn --version
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo "Running Maven build"
+      mvn clean package
