@@ -21,7 +21,7 @@ steps:
       uname -a
       df -h
       whoami
-      mvn --version
+      sudo mvn --version
 - task: CmdLine@2
   inputs:
     script: |
