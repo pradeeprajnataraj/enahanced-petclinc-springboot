@@ -21,14 +21,16 @@ steps:
       uname -a
       df -h
       whoami
-- task: Maven@4
+      mvn --version
+- task: CmdLine@2
   inputs:
-    azureSubscription: 'Azure subscription 1(a7227ddf-a84b-488c-9757-267492f738eb)'
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+    script: |
+      echo "Running Maven build"
+      mvn clean package
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo "Running Maven build"
+      mvn deploy      
+
