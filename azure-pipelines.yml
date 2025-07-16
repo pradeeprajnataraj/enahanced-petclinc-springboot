@@ -7,9 +7,9 @@ trigger:
 - prod
 
 pool:
-  name: Default
+  name: ap_dockerapp
   demands:
-    - agent.name -equals ap_dockerapp
+    - agent.name -equals vm-dockerapp
 
 steps:
 - task: CmdLine@2
