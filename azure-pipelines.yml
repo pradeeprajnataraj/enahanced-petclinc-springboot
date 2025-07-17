@@ -15,6 +15,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
+      source /etc/profile.d/maven.sh
       echo "Running on agent: $(Agent.Name)"
       echo "Current directory: $(Build.SourcesDirectory)"
       echo "Hello from Linux shell!"
@@ -22,15 +23,17 @@ steps:
       df -h
       whoami
       mvn --version
+
 - task: CmdLine@2
   inputs:
     script: |
+      source /etc/profile.d/maven.sh
       echo "Running Maven build"
       mvn clean package
 
 - task: CmdLine@2
   inputs:
     script: |
-      echo "Running Maven build"
-      mvn deploy      
-
+      source /etc/profile.d/maven.sh
+      echo "Running Maven deploy"
+      mvn deploy
