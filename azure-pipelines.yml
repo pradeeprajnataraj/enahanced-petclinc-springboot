@@ -7,7 +7,7 @@ trigger:
 - prod
 
 pool:
-  name: agentpool_docker
+  name: Default
   demands:
     - agent.name -equals vm-docker
 
