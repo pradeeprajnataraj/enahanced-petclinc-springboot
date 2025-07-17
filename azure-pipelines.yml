@@ -32,5 +32,5 @@ steps:
   inputs:
     script: |
       echo "Running Maven build"
-      mvn deploy      
+      mvn verify      
 
