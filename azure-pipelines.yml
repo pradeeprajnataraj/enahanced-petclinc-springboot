@@ -7,9 +7,9 @@ trigger:
 - prod
 
 pool:
-  name: Default
+  name: AGENTPOOL-Azure
   demands:
-    - agent.name -equals vm-docker
+    - agent.name -equals AgentPipeline
 
 steps:
 - task: CmdLine@2
